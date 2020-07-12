@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap");
+
+/* Typography */
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+/* Colors */
+
+#main-header {
+  background-color: #7477bf;
+  color: #fff;
+  grid-area: header;
+}
+
+#main-header button {
+  /* I don't know why the color doesn't change under #main-header so I redefined here and it worked */
+  color: #fff;
+}
+
+#main-sidebar {
+  background-color: #4d4c72;
+  grid-area: sidebar;
+}
+
+#main-content {
+  grid-area: content;
+}
+
+#main-header button {
+  border: none;
+  background-color: transparent;
+  display: inline-flex;
+  align-items: center;
+}
+
+#main-header button:hover {
+  background-color: #fff;
+}
+
+/* Layout */
+
+.grid-layout {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 70px 1fr;
+  grid-template-rows: 70px 1fr;
+  grid-template-areas:
+    "header header"
+    "sidebar content";
+}
+
+#main-header,
+#main-content > header {
+  display: flex;
+}
+
+#main-header {
+  padding: 0 20px;
+  align-items: center;
+}
+
+#main-content > header > input,
+#main-header #notifications {
+  margin-left: auto;
+}
+
+.vdivider {
+  border-left: 1px solid #4d4c72;
+  height: 70%;
+  margin: 0 10px;
+}
+
+#main-sidebar {
+  padding: 10px;
+  text-align: center;
+}
+
+#main-sidebar a {
+  display: block;
+  margin-top: 40px;
+}
+
+#main-sidebar svg {
+  height: 35px;
+}
+
+#main-content {
+  padding: 20px;
+}
+
+/* Images and SVGs */
+
+#notifications svg {
+  height: 20px;
+}
+
+#profile img {
+  height: 50px;
+  border-radius: 32px;
+  margin-right: 10px;
+}
+
+/* Media queries */
+
+@media (min-width: 100px) {
+  body {
+    color: red;
+  }
+}
