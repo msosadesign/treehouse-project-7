@@ -4,6 +4,25 @@
 
 * {
   font-family: "Inter", sans-serif;
+  box-sizing: border-box;
+}
+
+#main-header h1 > span {
+  font-weight: 200;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  color: #6c6c6c;
+}
+
+h3 {
+  text-transform: uppercase;
+  font-size: 14px;
 }
 
 /* Colors */
@@ -14,14 +33,27 @@
   grid-area: header;
 }
 
-#main-header button {
-  /* I don't know why the color doesn't change under #main-header so I redefined here and it worked */
-  color: #fff;
-}
-
 #main-sidebar {
   background-color: #4d4c72;
   grid-area: sidebar;
+}
+
+.nav-link path {
+  fill: rgba(255, 255, 255, 0.6);
+}
+
+.nav-link-active path {
+  fill: #fff;
+}
+
+.nav-link-active:after {
+  content: "";
+  height: 33%;
+  width: 43px;
+  position: absolute;
+  background: #81c98f;
+  border-radius: 5px;
+  bottom: -25%;
 }
 
 #main-content {
@@ -35,20 +67,37 @@
   align-items: center;
 }
 
+.user-name {
+  display: none;
+}
+
 #main-header button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+.search-container {
   background-color: #fff;
+}
+
+.search-glass {
+  fill: #7477bf;
+}
+
+#dash-header {
+  background-color: #fbfbfb;
 }
 
 /* Layout */
 
 .grid-layout {
   display: grid;
-  min-height: 100vh;
-  grid-template-columns: 70px 1fr;
-  grid-template-rows: 70px 1fr;
+  grid-template-rows: 80px 1fr;
+  grid-template-columns: 1fr;
+  height: 100vh;
   grid-template-areas:
-    "header header"
-    "sidebar content";
+    "header"
+    "content";
 }
 
 #main-header,
@@ -56,38 +105,83 @@
   display: flex;
 }
 
+#dash-header {
+  flex-direction: column;
+  padding: 0 10px 20px;
+  border-bottom: 1px solid #c4c4c4;
+}
+
+.search-container {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #c4c4c4;
+  border-radius: 4px;
+  width: 100%;
+  padding: 10px;
+  height: 48px;
+}
+
+.search-container svg {
+  height: 100%;
+}
+
+#dash-search {
+  width: 100%;
+  border: none;
+  outline: none;
+  flex: 1;
+}
+
 #main-header {
   padding: 0 20px;
   align-items: center;
 }
 
-#main-content > header > input,
 #main-header #notifications {
   margin-left: auto;
 }
 
 .vdivider {
   border-left: 1px solid #4d4c72;
-  height: 70%;
+  height: 40px;
   margin: 0 10px;
 }
 
 #main-sidebar {
-  padding: 10px;
-  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
 }
 
-#main-sidebar a {
-  display: block;
-  margin-top: 40px;
+#main-sidebar nav {
+  width: 100%;
+  height: 100%;
 }
 
-#main-sidebar svg {
-  height: 35px;
+#main-sidebar nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-link {
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 #main-content {
-  padding: 20px;
+  height: calc(100% + 70px);
+}
+
+.wrapper {
+  padding: 10px;
+}
+
+#profile {
+  padding: 0;
 }
 
 /* Images and SVGs */
@@ -99,13 +193,59 @@
 #profile img {
   height: 50px;
   border-radius: 32px;
-  margin-right: 10px;
+}
+
+#main-sidebar svg {
+  height: 40px;
 }
 
 /* Media queries */
 
-@media (min-width: 100px) {
-  body {
-    color: red;
+@media (min-width: 500px) {
+  #main-content > header {
+    flex-direction: row;
+  }
+
+  #dash-search {
+    width: 200px;
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .grid-layout {
+    grid-template-columns: 70px 1fr;
+    grid-template-rows: 70px 1fr;
+    grid-template-areas:
+      "header header"
+      "sidebar content";
+  }
+
+  #main-sidebar {
+    position: relative;
+    padding: 10px;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  #main-sidebar a {
+    margin-top: 40px;
+  }
+
+  #main-content {
+    padding: 20px;
+    height: auto;
+  }
+
+  #main-sidebar nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  #main-sidebar svg {
+    height: 30px;
   }
 }
