@@ -48,12 +48,12 @@ h3 {
 
 .nav-link-active:after {
   content: "";
-  height: 33%;
+  height: 22px;
   width: 43px;
   position: absolute;
   background: #81c98f;
   border-radius: 5px;
-  bottom: -25%;
+  bottom: -15px;
 }
 
 #main-content {
@@ -121,8 +121,21 @@ h3 {
   height: 48px;
 }
 
+#notification-container svg,
+#notification-container button,
 .search-container svg {
   height: 100%;
+}
+
+#notification-container {
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #c4c4c4;
+  border-radius: 4px;
+  width: 100%;
+  padding: 10px;
+  height: 48px;
 }
 
 #dash-search {
@@ -173,15 +186,24 @@ h3 {
 }
 
 #main-content {
-  height: calc(100% + 70px);
+  height: calc(100% + 75px);
 }
 
-.wrapper {
+.full-card {
   padding: 10px;
 }
 
 #profile {
   padding: 0;
+}
+
+.double-card {
+  border: 2px solid #c4c4c4;
+}
+
+.card-divider {
+  border-bottom: 1px solid #c4c4c4;
+  width: 100%;
 }
 
 /* Images and SVGs */
@@ -202,13 +224,25 @@ h3 {
 /* Media queries */
 
 @media (min-width: 500px) {
-  #main-content > header {
+  #dash-header {
     flex-direction: row;
+    align-items: center;
+    padding: 0;
   }
 
-  #dash-search {
-    width: 200px;
+  #dash-header > h2 {
+    margin: 0px;
+    padding: 20px;
+    background-color: #fff;
+    margin-bottom: -1px;
+    border-bottom: 1px solid #fff;
+    border-right: 1px solid #c4c4c4;
+  }
+
+  .search-container {
+    width: 300px;
     margin-left: auto;
+    margin-right: 10px;
   }
 }
 
@@ -219,6 +253,12 @@ h3 {
     grid-template-areas:
       "header header"
       "sidebar content";
+  }
+
+  .user-name {
+    display: inline;
+    margin-left: 10px;
+    color: #fff;
   }
 
   #main-sidebar {
@@ -233,9 +273,20 @@ h3 {
     margin-top: 40px;
   }
 
+  .nav-link {
+    height: 45px;
+  }
+
   #main-content {
-    padding: 20px;
     height: auto;
+  }
+
+  .wrapper {
+    padding: 10px;
+  }
+
+  .double-card {
+    border: 1px solid #c4c4c4;
   }
 
   #main-sidebar nav {
@@ -247,5 +298,35 @@ h3 {
 
   #main-sidebar svg {
     height: 30px;
+  }
+
+  .nav-link-active:after {
+    height: 75px;
+    width: 22px;
+    bottom: auto;
+    left: -17px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wrapper {
+    padding: 0;
+  }
+
+  .full-card {
+    padding: 20px;
+    align-self: center;
+  }
+
+  .double-card {
+    display: flex;
+    border-left: none;
+    border-right: none;
+  }
+
+  .card-divider {
+    border-bottom: none;
+    width: 0;
+    border-right: 1px solid #c4c4c4;
   }
 }
