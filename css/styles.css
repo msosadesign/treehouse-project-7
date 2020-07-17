@@ -60,15 +60,15 @@ h3 {
   grid-area: content;
 }
 
+#close-notification,
 #main-header button {
   border: none;
   background-color: transparent;
-  display: inline-flex;
   align-items: center;
 }
 
-.user-name {
-  display: none;
+#main-header button {
+  display: inline-flex;
 }
 
 #main-header button:hover {
@@ -121,21 +121,40 @@ h3 {
   height: 48px;
 }
 
-#notification-container svg,
-#notification-container button,
 .search-container svg {
   height: 100%;
 }
 
 #notification-container {
   margin: 10px;
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid #c4c4c4;
+  padding: 10px 15px;
   border-radius: 4px;
-  width: 100%;
-  padding: 10px;
-  height: 48px;
+  background-color: #7377bf;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+}
+
+#notification-container p {
+  margin: 0;
+  font-size: 14px;
+}
+
+#close-notification {
+  margin-left: auto;
+}
+
+#close-notification svg g {
+  fill: #fff;
+}
+
+#notification-container p > span {
+  margin-right: 5px;
+  font-weight: 700;
+}
+
+#close-notification svg {
+  height: 15px;
 }
 
 #dash-search {
@@ -195,6 +214,10 @@ h3 {
 
 #profile {
   padding: 0;
+}
+
+.user-name {
+  display: none;
 }
 
 .double-card {
