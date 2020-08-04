@@ -8,6 +8,7 @@ closeNotification.addEventListener("click", () => {
   notification.style.display = "none";
 });
 
+// Charts
 const trafficgraph = document.getElementById('traffic').getContext('2d');
 const traffic = new Chart(trafficgraph, {
     type: 'line',
