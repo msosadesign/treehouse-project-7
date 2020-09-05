@@ -145,7 +145,7 @@ h3 {
 }
 
 .flex-switch {
-  width: 60%;
+  width: 300px;
 }
 
 .flex-switch label:nth-child(-1n+1),
