@@ -1,6 +1,7 @@
 const closeNotification = document.getElementById("close-notification");
-const blueColor = '#7377bf';
-const transparentBlue = 'rgba(115, 119, 191, 0.3)';
+const blueColor = "#7377bf";
+const transparentBlue = "rgba(115, 119, 191, 0.3)";
+const sendMessage = document.getElementById("send-message");
 
 // Close notification bar
 closeNotification.addEventListener("click", () => {
@@ -8,58 +9,140 @@ closeNotification.addEventListener("click", () => {
   notification.style.display = "none";
 });
 
-// Charts
-const trafficgraph = document.getElementById('traffic').getContext('2d');
-const traffic = new Chart(trafficgraph, {
-    type: 'line',
-    data: {
-        labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
-        datasets: [{
-            label: '# of Votes',
-            data: [500, 1000, 750, 1250, 1750, 1250, 1500, 1000, 1500, 2000, 1500, 2000],
-            backgroundColor: transparentBlue,
-            borderColor: blueColor,
-            lineTension: '0',
-            pointBackgroundColor: '#fff',
-            pointBorderWidth: '2',
-            pointRadius: '7',
-            borderWidth: '1',
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
+sendMessage.addEventListener("click", () => {
+  const search = document.getElementById("search-user");
+  const message = document.getElementById("message-for-user");
+
+  function createSnack(snackMessage, type) {
+    let snack = document.createElement("span");
+    snack.innerHTML = snackMessage;
+
+    if (type === "error") {
+      snack.className = "snackbar error-snack";
     }
+
+    if (type === "success") {
+      snack.className = "snackbar success-snack";
+    }
+
+    return snack;
+  }
+
+  function showSnack(snackName) {
+    document.body.appendChild(snackName);
+    setTimeout(function () {
+      snackName.style.display = "none";
+    }, 5000);
+    return snackName;
+  }
+
+  const errorNoUser = createSnack("You didn't specify an user", "error");
+  const errorNoMsg = createSnack("You didn't type a message", "error");
+  const errorEmpty = createSnack(
+    "You have to specify an user and a message",
+    "error"
+  );
+  const success = createSnack("Message sent", "success");
+
+  if (search.value == "" && message.value == "") {
+    showSnack(errorEmpty);
+  } else if (search.value == "") {
+    showSnack(errorNoUser);
+  } else if (message.value == "") {
+    showSnack(errorNoMsg);
+  } else {
+    showSnack(success);
+  }
 });
 
+// Charts
+const trafficgraph = document.getElementById("traffic").getContext("2d");
+const traffic = new Chart(trafficgraph, {
+  type: "line",
+  data: {
+    labels: [
+      "16-22",
+      "23-29",
+      "30-5",
+      "6-12",
+      "13-19",
+      "20-26",
+      "27-3",
+      "4-10",
+      "11-17",
+      "18-24",
+      "25-31",
+    ],
+    datasets: [
+      {
+        label: "# of Votes",
+        data: [
+          500,
+          1000,
+          750,
+          1250,
+          1750,
+          1250,
+          1500,
+          1000,
+          1500,
+          2000,
+          1500,
+          2000,
+        ],
+        backgroundColor: transparentBlue,
+        borderColor: blueColor,
+        lineTension: "0",
+        pointBackgroundColor: "#fff",
+        pointBorderWidth: "2",
+        pointRadius: "7",
+        borderWidth: "1",
+      },
+    ],
+  },
+  options: {
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true,
+          },
+        },
+      ],
+    },
+  },
+});
 
-const dailyTrafficGraph = document.getElementById('dailyTraffic').getContext('2d');
+const dailyTrafficGraph = document
+  .getElementById("dailyTraffic")
+  .getContext("2d");
 const dailyTraffic = new Chart(dailyTrafficGraph, {
-    type: 'bar',
-    data: {
-        labels: ["S","M","T","W","T","F","S"],
-        datasets: [{
-            label: 'Daily Traffic',
-            backgroundColor: blueColor,
-            data: [100, 75, 150, 100, 200, 175, 125],
-    }]},
+  type: "bar",
+  data: {
+    labels: ["S", "M", "T", "W", "T", "F", "S"],
+    datasets: [
+      {
+        label: "Daily Traffic",
+        backgroundColor: blueColor,
+        data: [100, 75, 150, 100, 200, 175, 125],
+      },
+    ],
+  },
 });
 
-const mobileUsersGraph = document.getElementById('mobileUsers').getContext('2d');
+const mobileUsersGraph = document
+  .getElementById("mobileUsers")
+  .getContext("2d");
 const mobileUsers = new Chart(mobileUsersGraph, {
-    type: 'doughnut',
-    data: {
-        labels: ["Phones","Tablets","Desktop"],
-        datasets: [{
-            label: 'Daily Traffic',
-            data: [15,15,80],
-            backgroundColor: [
-                '#74b1bf', '#81c98f', blueColor
-            ],
-    }]},
+  type: "doughnut",
+  data: {
+    labels: ["Phones", "Tablets", "Desktop"],
+    datasets: [
+      {
+        label: "Daily Traffic",
+        data: [15, 15, 80],
+        backgroundColor: ["#74b1bf", "#81c98f", blueColor],
+      },
+    ],
+  },
 });

@@ -61,6 +61,29 @@ h3 {
   fill: #fff;
 }
 
+.snackbar {
+  position: fixed;
+  background-color: #7377bf;
+  margin: 0 auto;
+  border-radius: 4px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 20px;
+  bottom: 60px;
+  width: max-content;
+  left: 0;
+  right: 0;
+  transition: 0.3s;
+}
+
+.error-snack {
+  background-color: #BB4430;
+}
+
+.success-snack {
+  background-color: #60992D;
+}
+
 .recent-activity svg,
 .full-card a {
   color: #7377bf;
@@ -310,7 +333,7 @@ textarea {
 #save-settings,
 #send-message {
   background-color: #7477bf;
-  color: #fff; 
+  color: #fff;
 }
 
 
@@ -496,7 +519,7 @@ textarea {
   height: 34px;
 }
 
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
