@@ -2,10 +2,15 @@ const closeNotification = document.getElementById("close-notification");
 const blueColor = "#7377bf";
 const transparentBlue = "rgba(115, 119, 191, 0.3)";
 const sendMessage = document.getElementById("send-message");
+const saveSettings = document.getElementById("save-settings");
+const cancelSettings = document.getElementById("cancel-settings");
 const hourlyTrafficView = document.getElementById("hourly-traffic");
 const dailyTrafficView = document.getElementById("daily-traffic");
 const weeklyTrafficView = document.getElementById("weekly-traffic");
 const monthlyTrafficView = document.getElementById("monthly-traffic");
+const emailNotifications = document.getElementById("email-notifications");
+const profilePrivacy = document.getElementById("profile-privacy");
+const timezones = document.getElementById("timezones");
 
 // Close notification bar
 closeNotification.addEventListener("click", () => {
@@ -295,3 +300,37 @@ const mobileUsers = new Chart(mobileUsersGraph, {
     ],
   },
 });
+
+// Save Settings
+
+saveSettings.addEventListener("click", () => {
+  localStorage.setItem("emailNotifications", emailNotifications.checked);
+  localStorage.setItem("profilePrivacy", profilePrivacy.checked);
+
+  localStorage.setItem("timezones", timezones.value);
+
+  location.reload();
+});
+
+// Cancel settings
+
+cancelSettings.addEventListener("click", () => {
+  localStorage.setItem("emailNotifications", true);
+  localStorage.setItem("profilePrivacy", true);
+
+  localStorage.setItem("timezones", "Select Time Zone");
+
+  location.reload();
+});
+
+// Set Local Storage Values
+
+console.log(localStorage);
+
+let emailBoolean = localStorage.getItem("emailNotifications") === "true";
+emailNotifications.checked = emailBoolean;
+
+let profileBoolean = localStorage.getItem("profilePrivacy") === "true";
+profilePrivacy.checked = profileBoolean;
+
+timezones.value = localStorage.getItem("timezones");
