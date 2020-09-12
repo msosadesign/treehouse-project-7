@@ -1,11 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap");
 
-/* Typography */
-
 * {
   font-family: "Inter", sans-serif;
   box-sizing: border-box;
 }
+
+select,
+button {
+  cursor: pointer;
+}
+
+/* Typography */
 
 #main-header h1 > span {
   font-weight: 200;
@@ -77,11 +82,11 @@ h3 {
 }
 
 .error-snack {
-  background-color: #BB4430;
+  background-color: #bb4430;
 }
 
 .success-snack {
-  background-color: #60992D;
+  background-color: #60992d;
 }
 
 .recent-activity svg,
@@ -151,8 +156,8 @@ h3 {
   grid-template-columns: 1fr;
   height: 100vh;
   grid-template-areas:
-  "header"
-  "content";
+    "header"
+    "content";
 }
 
 .flex-title,
@@ -171,8 +176,8 @@ h3 {
   width: 300px;
 }
 
-.flex-switch label:nth-child(-1n+1),
-.flex-buttons label:nth-child(-1n+1) {
+.flex-switch label:nth-child(-1n + 1),
+.flex-buttons label:nth-child(-1n + 1) {
   margin: 20px 20px 25px 0;
 }
 
@@ -326,16 +331,14 @@ textarea {
   border: none;
   outline: none;
   border-radius: 5px;
-  transition: background-color .3s ease-out;
+  transition: background-color 0.3s ease-out;
 }
-
 
 #save-settings,
 #send-message {
   background-color: #7477bf;
   color: #fff;
 }
-
 
 #cancel-settings,
 #save-settings,
@@ -496,17 +499,17 @@ textarea {
   grid-template-columns: 1fr;
   grid-template-rows: repeat(3, 1fr);
   grid-template-areas:
-  "name"
-  "time"
-  "email";
+    "name"
+    "time"
+    "email";
 }
 
 .recent-activity li {
   grid-template-columns: 1fr auto;
   grid-template-rows: repeat(2, auto);
   grid-template-areas:
-  "name more"
-  "time more";
+    "name more"
+    "time more";
 }
 
 /* Switch */
@@ -534,8 +537,8 @@ textarea {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider,
@@ -551,7 +554,7 @@ textarea {
   font-weight: 700;
   left: 10px;
   bottom: 6px;
-  display: none
+  display: none;
 }
 
 .slider:before {
@@ -563,8 +566,8 @@ textarea {
   left: 4px;
   bottom: 3px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .switch input:checked + .slider {
@@ -584,7 +587,6 @@ textarea {
 .switch input:checked + .slider:after {
   display: block;
 }
-
 
 /* Switch */
 
@@ -683,16 +685,16 @@ textarea {
     grid-template-columns: 45px 1fr auto;
     grid-template-rows: repeat(2, auto);
     grid-template-areas:
-    "image name more"
-    "image time more";
+      "image name more"
+      "image time more";
   }
 
   .new-members li {
     grid-template-columns: 45px 1fr auto;
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
-    "image name time"
-    "image email .";
+      "image name time"
+      "image email .";
   }
 
   .recent-activity li > span,
@@ -709,8 +711,8 @@ textarea {
     grid-template-columns: 70px 1fr;
     grid-template-rows: 70px 1fr;
     grid-template-areas:
-    "header header"
-    "sidebar content";
+      "header header"
+      "sidebar content";
   }
 
   .user-name {
@@ -807,5 +809,4 @@ textarea {
   .wrapper {
     width: 1130px;
   }
-
 }
