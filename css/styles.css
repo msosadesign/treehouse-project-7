@@ -74,11 +74,12 @@ h3 {
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
   color: #fff;
   padding: 20px;
-  bottom: 60px;
-  width: max-content;
+  bottom: 90px;
+  width: 90%;
   left: 0;
   right: 0;
   transition: 0.3s;
+  z-index: 1500;
 }
 
 .error-snack {
@@ -284,6 +285,7 @@ textarea {
   height: 150px;
 }
 
+.autocomplete-container,
 .full-card select,
 .full-card textarea,
 .full-card input[type="search"] {
@@ -294,6 +296,35 @@ textarea {
   padding: 15px;
   width: 100%;
   outline: none;
+}
+
+.autocomplete {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.autocomplete-items {
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.autocomplete-container {
+  padding: 0;
+  display: none;
+  max-height: 197px;
+  overflow: auto;
+  position: absolute;
+  z-index: 99;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items:hover {
+  background-color: #e9e9e9;
 }
 
 .full-card select {
@@ -312,7 +343,7 @@ textarea {
 }
 
 .full-card textarea,
-.full-card input[type="search"] {
+.autocomplete {
   margin-bottom: 17px;
 }
 
@@ -379,6 +410,7 @@ textarea {
   bottom: 0;
   width: 100%;
   height: 70px;
+  z-index: 1000;
 }
 
 #main-sidebar nav {
@@ -671,6 +703,10 @@ textarea {
     margin-right: 10px;
   }
 
+  .snackbar {
+    width: max-content;
+  }
+
   .flex-title {
     flex-direction: row;
     justify-content: space-between;
@@ -719,6 +755,10 @@ textarea {
     display: inline;
     margin-left: 10px;
     color: #fff;
+  }
+
+  .snackbar {
+    bottom: 60px;
   }
 
   #main-sidebar {
