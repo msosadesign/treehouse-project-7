@@ -13,7 +13,7 @@ const profilePrivacy = document.getElementById("profile-privacy");
 const timezones = document.getElementById("timezones");
 const searchUser = document.getElementById("search-user");
 const alerts = document.getElementById("notifications");
-const countries = [
+const users = [
   "Bobby Rivera",
   "Monica Grant",
   "Eduardo Cooper",
@@ -43,6 +43,20 @@ closeNotification.addEventListener("click", () => {
   const notification = document.getElementById("notification-container");
   notification.style.display = "none";
 });
+
+// Notifications dropdown
+let notifOpen = false;
+alerts.addEventListener("click", () => {
+  const notifList = document.getElementsByClassName("dropdown")[0];
+  if (notifOpen) {
+    notifList.style.display = "none";
+  } else {
+    notifList.style.display = "block";
+  }
+  notifOpen = !notifOpen;
+});
+
+// Send message snackbars
 
 sendMessage.addEventListener("click", () => {
   const message = document.getElementById("message-for-user");
@@ -127,7 +141,7 @@ function autocomplete(inp, array) {
   });
 }
 
-autocomplete(searchUser, countries);
+autocomplete(searchUser, users);
 
 // Traffic buttons
 

@@ -285,6 +285,7 @@ textarea {
   height: 150px;
 }
 
+.dropdown,
 .autocomplete-container,
 .full-card select,
 .full-card textarea,
@@ -347,6 +348,7 @@ textarea {
   margin-bottom: 17px;
 }
 
+.dropdown a,
 .full-card option {
   color: #333;
 }
@@ -394,8 +396,34 @@ textarea {
   align-items: center;
 }
 
-#main-header #notifications {
+#main-header #alerts-container {
   margin-left: auto;
+  position: relative;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  min-width: 240px;
+  max-height: 301px;
+  right: -50px;
+  padding: 0 10px;
+  z-index: 2000;
+  overflow: auto;
+}
+
+.dropdown a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.dropdown a > img {
+  max-height: 20px;
+  border-radius: 20px;
+  margin-right: 10px;
 }
 
 .vdivider {
@@ -620,7 +648,7 @@ textarea {
   display: block;
 }
 
-/* Switch */
+/* Switch ^ */
 
 .recent-activity li > img,
 .new-members li > img {
@@ -652,6 +680,19 @@ textarea {
 .recent-activity li > a,
 .new-members li > a {
   grid-area: email;
+}
+
+.notification-list {
+  margin: 0;
+}
+
+.notification-list li {
+  grid-template-rows: auto;
+  padding: 10px;
+}
+
+.notification-list li > span {
+  display: none;
 }
 
 /* Images and SVGs */
@@ -697,10 +738,21 @@ textarea {
     border-right: 1px solid #c4c4c4;
   }
 
+  .vdivider {
+    border-left: 1px solid #4d4c72;
+    height: 40px;
+    margin: 0 10px;
+  }
+
   .search-container {
     width: 300px;
     margin-left: auto;
     margin-right: 10px;
+  }
+
+  .dropdown {
+    min-width: 300px;
+    right: 0;
   }
 
   .snackbar {
@@ -755,6 +807,16 @@ textarea {
     display: inline;
     margin-left: 10px;
     color: #fff;
+  }
+
+  .dropdown {
+    min-width: 350px;
+    padding: 10px;
+    min-height: 311px;
+  }
+
+  .notifications-list li > span {
+    display: inline;
   }
 
   .snackbar {
