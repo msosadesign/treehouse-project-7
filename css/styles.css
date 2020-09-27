@@ -66,6 +66,11 @@ h3 {
   fill: #fff;
 }
 
+.autocomplete-container,
+.dropdown {
+  box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.3);
+}
+
 .snackbar {
   position: fixed;
   background-color: #7377bf;
@@ -242,6 +247,8 @@ h3 {
 #notifications {
   padding: 10px;
   border-radius: 20px;
+  outline: none;
+  border: none;
 }
 
 .search-container svg {
@@ -516,6 +523,8 @@ textarea {
 
 #profile {
   padding: 0;
+  border: none;
+  outline: none;
 }
 
 .user-name {

@@ -58,7 +58,7 @@ alerts.addEventListener("click", () => {
 
 // Send message snackbars
 
-sendMessage.addEventListener("click", () => {
+sendMessage.addEventListener("click", (e) => {
   const message = document.getElementById("message-for-user");
 
   function createSnack(snackMessage, type) {
@@ -85,6 +85,7 @@ sendMessage.addEventListener("click", () => {
   const success = createSnack("Message sent", "success");
 
   function showSnack(snackName) {
+    e.preventDefault();
     document.body.appendChild(snackName);
     setTimeout(function () {
       snackName.style.display = "none";
@@ -102,6 +103,8 @@ sendMessage.addEventListener("click", () => {
     showSnack(success);
     message.value = "";
     searchUser.value = "";
+    // The line below submits the form
+    // document.getElementById("message-form").submit();
   }
 });
 

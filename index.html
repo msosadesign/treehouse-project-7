@@ -24,7 +24,6 @@
             <li>
               <img src="images/member-1.jpg" alt="User profile picture" />
               <p>Victoria Chambers commented on YourApp's SEO Tips</p>
-              <span>4 hours ago</span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                 <path d="M0 0h24v24H0V0z" fill="none" />
                 <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z" />
@@ -33,7 +32,6 @@
             <li>
               <img src="images/member-3.jpg" alt="User profile picture" />
               <p>Dawn Wood commented on Facebook's changes for 2016</p>
-              <span>4 hours ago</span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                 <path d="M0 0h24v24H0V0z" fill="none" />
                 <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z" />
@@ -42,7 +40,6 @@
             <li>
               <img src="images/member-4.jpg" alt="User profile picture" />
               <p>Dan Oliver posted on YourApp's SEO Tips</p>
-              <span>4 hours ago</span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                 <path d="M0 0h24v24H0V0z" fill="none" />
                 <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z" />
@@ -51,7 +48,6 @@
             <li>
               <img src="images/member-2.jpg" alt="User profile picture" />
               <p>Dale Byrd liked the post Facebook's Changes for 2016</p>
-              <span>4 hours ago</span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                 <path d="M0 0h24v24H0V0z" fill="none" />
                 <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z" />
@@ -362,24 +358,26 @@
 
           <div class="double-card">
             <article class="full-card">
-              <h3>Message User</h3>
-              <div class="autocomplete">
-                <input
-                  type="search"
-                  name="search-user"
-                  placeholder="Search for User"
-                  id="search-user"
-                />
-                <div class="autocomplete-container"></div>
-              </div>
-              <textarea
-                name="message-for-user"
-                id="message-for-user"
-                placeholder="Message for User"
-                cols="30"
-                rows="10"
-              ></textarea>
-              <input type="button" value="Send" id="send-message" />
+              <form id="message-form" method="post">
+                <h3>Message User</h3>
+                <div class="autocomplete">
+                  <input
+                    type="search"
+                    name="search-user"
+                    placeholder="Search for User"
+                    id="search-user"
+                  />
+                  <div class="autocomplete-container"></div>
+                </div>
+                <textarea
+                  name="message-for-user"
+                  id="message-for-user"
+                  placeholder="Message for User"
+                  cols="30"
+                  rows="10"
+                ></textarea>
+                <input type="submit" value="Send" id="send-message" />
+              </form>
             </article>
 
             <div class="card-divider"></div>
