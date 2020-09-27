@@ -344,9 +344,10 @@ textarea {
   background-position: right 10px top 50%;
 }
 
-.full-card select:placeholder,
-.full-card textarea:placeholder,
-.full-card input[type="search"]:placeholder {
+#dash-search::placeholder,
+.full-card select::placeholder,
+.full-card textarea::placeholder,
+.full-card input[type="search"]::placeholder {
   color: #b5b5b5;
 }
 
