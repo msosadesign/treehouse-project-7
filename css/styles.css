@@ -890,7 +890,13 @@ textarea {
   .stats-container {
     flex-direction: row;
     justify-content: space-between;
+    gap: 16px;
   }
+
+  .social-stat {
+    width: 100%;
+  }
+
 }
 
 @media (min-width: 1024px) {
