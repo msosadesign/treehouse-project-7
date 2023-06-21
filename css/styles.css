@@ -106,16 +106,6 @@ h3 {
   grid-area: sidebar;
 }
 
-.nav-link-active:after {
-  content: "";
-  height: 22px;
-  width: 43px;
-  position: absolute;
-  background: #81c98f;
-  border-radius: 5px;
-  bottom: -15px;
-}
-
 #main-content {
   grid-area: content;
 }
@@ -137,10 +127,6 @@ h3 {
   cursor: pointer;
 }
 
-.search-container {
-  background-color: #fff;
-}
-
 .search-glass {
   fill: #7477bf;
 }
@@ -158,11 +144,12 @@ h3 {
 
 .grid-layout {
   display: grid;
-  grid-template-rows: 80px 1fr;
+  grid-template-rows: 80px 70px 1fr;
   grid-template-columns: 1fr;
   height: 100vh;
   grid-template-areas:
     "header"
+    "sidebar"
     "content";
 }
 
@@ -207,19 +194,20 @@ h3 {
 }
 
 #dash-header {
-  flex-direction: column;
   padding: 0 10px 20px;
   border-bottom: 1px solid #c4c4c4;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
 }
 
-.search-container {
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid #c4c4c4;
-  border-radius: 4px;
-  width: 100%;
-  padding: 10px;
-  height: 48px;
+#dash-header > h2 {
+  margin: 0px;
+  padding: 20px;
+  background-color: #fff;
+  margin-bottom: -1px;
+  border-bottom: 1px solid #fff;
+  border-right: 1px solid #c4c4c4;
 }
 
 .flex-title {
@@ -249,10 +237,6 @@ h3 {
   border-radius: 20px;
   outline: none;
   border: none;
-}
-
-.search-container svg {
-  height: 100%;
 }
 
 #notification-container {
@@ -440,15 +424,6 @@ textarea {
   margin: 0 10px;
 }
 
-#main-sidebar {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 70px;
-  z-index: 1000;
-}
-
 #main-sidebar nav {
   width: 100%;
   height: 100%;
@@ -499,8 +474,8 @@ textarea {
   height: 53px;
   margin: auto 0;
   background-color: #7377bf;
-  padding: 10px;
   border-radius: 40px;
+  display: flex;
 }
 
 .social-icon svg {
@@ -560,6 +535,10 @@ textarea {
   display: grid;
 }
 
+.recent-activity li .article-title-bold {
+  font-weight: 700;
+}
+
 .new-members li:last-child,
 .recent-activity li:last-child {
   border-bottom: none;
@@ -567,19 +546,27 @@ textarea {
 
 .new-members li {
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: min-content;
+  justify-items: center;
+  gap: 4px;
   grid-template-areas:
+    "image"
     "name"
+    "email"
     "time"
-    "email";
+    ;
 }
 
 .recent-activity li {
   grid-template-columns: 1fr auto;
   grid-template-rows: repeat(2, auto);
+  justify-items: center;
+  gap: 4px;
+  text-align: center;
   grid-template-areas:
-    "name more"
-    "time more";
+    "image"
+    "name"
+    "time";
 }
 
 /* Switch */
@@ -662,7 +649,8 @@ textarea {
 
 .recent-activity li > img,
 .new-members li > img {
-  display: none;
+  width: 80px;
+  height: 80px;
   max-width: 100%;
   border-radius: 100%;
   grid-area: image;
@@ -672,7 +660,6 @@ textarea {
 .new-members li > p {
   margin: 0;
   grid-area: name;
-  padding-bottom: 6px;
 }
 
 .recent-activity li > span,
@@ -682,6 +669,7 @@ textarea {
 }
 
 .recent-activity li > svg {
+  display: none;
   grid-area: more;
   height: 45px;
   margin: auto 0;
@@ -733,31 +721,14 @@ textarea {
 /* Media queries */
 
 @media (min-width: 500px) {
-  #dash-header {
-    flex-direction: row;
-    align-items: center;
-    padding: 0;
-  }
-
-  #dash-header > h2 {
-    margin: 0px;
-    padding: 20px;
-    background-color: #fff;
-    margin-bottom: -1px;
-    border-bottom: 1px solid #fff;
-    border-right: 1px solid #c4c4c4;
+  .recent-activity li > svg {
+    display: block;
   }
 
   .vdivider {
     border-left: 1px solid #4d4c72;
     height: 40px;
     margin: 0 10px;
-  }
-
-  .search-container {
-    width: 300px;
-    margin-left: auto;
-    margin-right: 10px;
   }
 
   .dropdown {
@@ -776,12 +747,15 @@ textarea {
 
   .recent-activity li > img,
   .new-members li > img {
-    display: block;
+    height: 45px;
+    width: 45px;
   }
 
   .recent-activity li {
     grid-template-columns: 45px 1fr auto;
     grid-template-rows: repeat(2, auto);
+  text-align: left;
+  justify-items: left;
     grid-template-areas:
       "image name more"
       "image time more";
@@ -790,6 +764,7 @@ textarea {
   .new-members li {
     grid-template-columns: 45px 1fr auto;
     grid-template-rows: 1fr 1fr;
+    justify-items: left;
     grid-template-areas:
       "image name time"
       "image email .";
@@ -876,13 +851,6 @@ textarea {
 
   #main-sidebar svg {
     height: 30px;
-  }
-
-  .nav-link-active:after {
-    height: 75px;
-    width: 22px;
-    bottom: auto;
-    left: -17px;
   }
 }
 
