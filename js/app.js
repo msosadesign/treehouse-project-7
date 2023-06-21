@@ -97,13 +97,24 @@ sendMessage.addEventListener("click", (e) => {
     return snackName;
   }
 
+  function cleanSnackbars() {
+    const snackbars = document.getElementsByClassName("snackbar");
+    [...snackbars].forEach(snackbar => {
+      snackbar.remove();
+    });
+  }
+
   if (searchUser.value == "" && message.value == "") {
+    cleanSnackbars()
     showSnack(errorEmpty);
   } else if (searchUser.value == "") {
+    cleanSnackbars()
     showSnack(errorNoUser);
   } else if (message.value == "") {
+    cleanSnackbars()
     showSnack(errorNoMsg);
   } else {
+    cleanSnackbars()
     showSnack(success);
     message.value = "";
     searchUser.value = "";
