@@ -21,10 +21,14 @@ const users = [
   "Travis Harris",
   "Dale Cole",
   "Melvin Lynch",
+  "Victoria Chambers",
+  "Dale Byrd",
   "Gail Wagner",
   "Brent Lucas",
   "Georgia Rogers",
+  "Dawn Wood",
   "Gregory Shaw",
+  "Dan Oliver",
   "Rodney Frazier",
   "Norman Berry",
   "Shane Phillips",
@@ -172,36 +176,8 @@ updateTrafficChart(
 updateTrafficChart(
   dailyTrafficView,
   [
-    100,
-    200,
-    350,
-    129,
-    319,
-    400,
-    90,
-    569,
-    400,
-    130,
-    43,
-    100,
-    230,
-    140,
-    200,
-    120,
-    340,
-    120,
-    200,
-    80,
-    50,
-    500,
-    320,
-    100,
-    120,
-    150,
-    100,
-    430,
-    200,
-    300,
+    100, 200, 350, 129, 319, 400, 90, 569, 400, 130, 43, 100, 230, 140, 200,
+    120, 340, 120, 200, 80, 50, 500, 320, 100, 120, 150, 100, 430, 200, 300,
   ],
   [
     "1",
@@ -258,17 +234,7 @@ updateTrafficChart(
 updateTrafficChart(
   monthlyTrafficView,
   [
-    12000,
-    10000,
-    9000,
-    15000,
-    20000,
-    13000,
-    10000,
-    8000,
-    9000,
-    8000,
-    11000,
+    12000, 10000, 9000, 15000, 20000, 13000, 10000, 8000, 9000, 8000, 11000,
     12000,
   ],
   [
@@ -309,18 +275,7 @@ const traffic = new Chart(trafficgraph, {
       {
         label: "# of Votes",
         data: [
-          500,
-          1000,
-          750,
-          1250,
-          1750,
-          1250,
-          1500,
-          1000,
-          1500,
-          2000,
-          1500,
-          2000,
+          500, 1000, 750, 1250, 1750, 1250, 1500, 1000, 1500, 2000, 1500, 2000,
         ],
         backgroundColor: transparentBlue,
         borderColor: blueColor,
@@ -405,10 +360,16 @@ cancelSettings.addEventListener("click", () => {
 
 // Set Local Storage Values
 
-let emailBoolean = localStorage.getItem("emailNotifications") === "true";
-emailNotifications.checked = emailBoolean;
+if (localStorage.getItem("emailNotifications") !== null) {
+  let emailBoolean = localStorage.getItem("emailNotifications") === "true";
+  emailNotifications.checked = emailBoolean;
+}
 
-let profileBoolean = localStorage.getItem("profilePrivacy") === "true";
-profilePrivacy.checked = profileBoolean;
+if (localStorage.getItem("profilePrivacy") !== null) {
+  let profileBoolean = localStorage.getItem("profilePrivacy") === "true";
+  profilePrivacy.checked = profileBoolean;
+}
 
-timezones.value = localStorage.getItem("timezones");
+if (localStorage.getItem("timezones") !== null) {
+  timezones.value = localStorage.getItem("timezones");
+}
