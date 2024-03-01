@@ -1,7 +1,7 @@
 # WebApp Dashboard
 Dashboard WebApp created with css grids and flexbox, mostly written in HTML/CSS with some interactions on JS.
 
-Link: https://msosadesign.github.io/treehouse-project-7/
+[Live Demo](https://msosadesign.github.io/treehouse-project-7/)
 
 Technologies used:
 * HTML/CSS
